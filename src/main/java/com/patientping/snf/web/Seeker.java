@@ -8,12 +8,14 @@ import javax.inject.Named;
 
 import com.patientping.snf.ejb.interfaces.PatientManager;
 
+import edu.patientping.snf.model.to.PatientTO;
+
 @Named("seeker")
 @SessionScoped
 public class Seeker implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private String result;
+	private PatientTO result;
 	
 	@EJB
 	private PatientManager mPatientManager;
@@ -23,7 +25,7 @@ public class Seeker implements Serializable{
 	}
 	
 	
-	public String getResult(){
+	public PatientTO getResult(){
 		return result;
 	}
 	

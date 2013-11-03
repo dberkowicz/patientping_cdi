@@ -1,0 +1,25 @@
+<jxb:bindings version="1.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	jxb:extensionBindingPrefixes="xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+<!-- 	<jxb:globalBindings generateIsSetMethod="true"
+		fixedAttributeAsConstantProperty="true">
+		<jxb:javaType name="java.util.Calendar" xmlType="xs:date"
+			parseMethod="javax.xml.bind.DatatypeConverter.parseDate" printMethod="javax.xml.bind.DatatypeConverter.printDate" />
+		<jxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
+			parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
+			printMethod="javax.xml.bind.DatatypeConverter.printDateTime" />
+	</jxb:globalBindings> -->
+	
+	<jxb:bindings schemaLocation="patientping.xsd" node="/xs:schema">
+		<jxb:globalBindings>
+			<xjc:serializable />
+			<xjc:simple />
+			<jxb:javaType name="java.util.Date" xmlType="xs:dateTime"
+			parseMethod="com.patientping.snf.util.DateAdapter.parseDateTime"
+			printMethod="com.patientping.snf.util.DateAdapter.printDateTime" />
+		</jxb:globalBindings>
+	</jxb:bindings>
+	
+	
+</jxb:bindings>

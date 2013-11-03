@@ -48,6 +48,32 @@
             <type>pom</type>
             <scope>import</scope>
          </dependency>
+        <!--  <dependency>
+			<groupId>org.jboss.bom</groupId>
+			<artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+			<version>${jboss.bom.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency> -->
+		<dependency>
+				<groupId>org.jboss.bom</groupId>
+				<artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+				<version>${version.org.jboss.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>4.1.0.Final</version>
+				<scope>provided</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
       </dependencies>
    </dependencyManagement>
 
@@ -60,6 +86,19 @@
          <artifactId>cdi-api</artifactId>
          <scope>provided</scope>
       </dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
       <!-- Import the Common Annotations API (JSR-250), we use provided scope 
          as the API is included in JBoss AS 7 -->
@@ -130,6 +169,55 @@
                  <target>${maven.compiler.target}</target>
             </configuration>
          </plugin>
+         
+         
+         <plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/generated</directory>
+							<excludes>
+								<exclude>**/.svn</exclude>
+							</excludes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.7.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<generateDirectory>src/main/generated</generateDirectory>
+					<forceRegenerate>true</forceRegenerate>
+					<removeOldOutput>true</removeOldOutput>
+					<args>
+						<arg>-npa</arg>
+						<arg>-Xcollection-setter-injector</arg>
+						<arg>-extension</arg>
+					</args>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.java.dev.vcc.thirdparty</groupId>
+						<artifactId>collection-setter-injector</artifactId>
+						<version>0.5.0-1</version>
+					</dependency>
+				</dependencies>
+			</plugin> 
+         
+         
       </plugins>
    </build>
    <profiles>

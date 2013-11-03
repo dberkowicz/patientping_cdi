@@ -1,0 +1,18 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://snf.patientping.edu/model/to"
+	xmlns:tns="http://snf.patientping.edu/model/to"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.1"
+	elementFormDefault="qualified">
+	
+	
+	<complexType name="PatientTO">
+		<sequence>
+			<element name="firstName" type="string"/>
+			<element name="lastName" type="string"/>
+		</sequence>
+	</complexType>
+	
+	<element name="patientTO" type="tns:PatientTO" />
+	
+	</schema>

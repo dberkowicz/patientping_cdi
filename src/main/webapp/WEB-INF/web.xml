@@ -15,10 +15,10 @@
 	</filter-mapping>
 
 
- 	<listener>
+	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -26,6 +26,9 @@
         </param-value>
 	</context-param>
 
+	<session-config>
+		<session-timeout>45</session-timeout>
+	</session-config>
 
 
 

@@ -20,8 +20,6 @@ import javax.persistence.Table;
 	
 })
 
-
-
 @Entity
 @Table(name="patient_entity")
 @SuppressWarnings("serial")

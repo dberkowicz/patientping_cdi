@@ -12,8 +12,7 @@ import com.patientping.snf.ejb.entity.PatientEntity;
 import com.patientping.snf.ejb.entity.PatientIdentityEntity;
 import com.patientping.snf.ejb.interfaces.PatientManager;
 import com.patientping.snf.ejb.util.Assembler;
-
-import edu.patientping.snf.model.to.PatientTO;
+import com.patientping.snf.model.to.PatientTO;
 
 @Remote(PatientManager.class)
 @Stateless

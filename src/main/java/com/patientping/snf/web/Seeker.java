@@ -7,8 +7,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import com.patientping.snf.ejb.interfaces.PatientManager;
-
-import edu.patientping.snf.model.to.PatientTO;
+import com.patientping.snf.model.to.PatientTO;
 
 @Named("seeker")
 @SessionScoped

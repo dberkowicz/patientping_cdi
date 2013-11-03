@@ -1,6 +1,6 @@
 package com.patientping.snf.ejb.interfaces;
 
-import edu.patientping.snf.model.to.PatientTO;
+import com.patientping.snf.model.to.PatientTO;
 
 public interface PatientManager {
 	public PatientTO findPatientByHcin(String hcin);

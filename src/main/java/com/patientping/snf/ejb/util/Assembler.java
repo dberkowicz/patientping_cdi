@@ -1,8 +1,7 @@
 package com.patientping.snf.ejb.util;
 
 import com.patientping.snf.ejb.entity.PatientEntity;
-
-import edu.patientping.snf.model.to.PatientTO;
+import com.patientping.snf.model.to.PatientTO;
 
 public  class Assembler {
 
